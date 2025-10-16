@@ -103,6 +103,11 @@ section {
     padding: 15px 0;
 }
 
+.logo img {
+  height: 60px; 
+  border-radius: 50%; 
+}
+
 .logo {
     font-family: var(--font-serif);
     font-size: 1.5rem;
@@ -186,6 +191,7 @@ section {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s forwards 0.5s;
+    padding: 100px 0px 0px 0px;
 }
 
 .hero p {
@@ -404,27 +410,40 @@ textarea.form-control {
 }
 
 .social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: var(--color-secondary);
-    text-decoration: none;
-    transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  overflow: hidden; /* evita que los logos sobresalgan */
+}
+
+.social-link img {
+  width: 60%; /* mantiene proporciones sin recortar */
+  height: 60%;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85; /* leve transparencia para armonizar con el fondo */
 }
 
 .social-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.social-link:hover img {
+  transform: scale(1.15);
+  opacity: 1;
 }
 
 .footer-bottom {
@@ -452,6 +471,25 @@ textarea.form-control {
     transform: translateY(0);
 }
 
+.disclaimer {
+  background-color: #000;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: 40px;
+}
+
+.disclaimer a {
+  color: #4da6ff; /* azul suave para destacar el link */
+  text-decoration: none;
+}
+
+.disclaimer a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .about-content {
@@ -462,6 +500,21 @@ textarea.form-control {
     .about-image {
         margin-bottom: 30px;
     }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999; 
+  }
+
+  .logo img {
+    height: 40px; 
+    border-radius: 50%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -528,23 +581,4 @@ textarea.form-control {
         width: 200px;
         height: 200px;
     }
-}
-
-.disclaimer {
-  background-color: #000;
-  border-radius: 15px;
-  color: #fff;
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 10px 20px;
-  margin-top: 40px;
-}
-
-.disclaimer a {
-  color: #4da6ff; /* azul suave para destacar el link */
-  text-decoration: none;
-}
-
-.disclaimer a:hover {
-  text-decoration: underline;
 }
